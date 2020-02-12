@@ -1,0 +1,13 @@
+
+// Theme Base variants
+$color-theme-primary-dark: darken($color-theme-primary, 5%);
+$color-theme-primary-light: lighten($color-theme-primary, 5%);
+
+$color-theme-secondary-dark: darken($color-theme-secondary, 5%);
+$color-theme-secondary-light: lighten($color-theme-secondary, 5%);
+
+$color-theme-tertiary-dark: darken($color-theme-tertiary, 5%);
+$color-theme-tertiary-light: lighten($color-theme-tertiary, 5%);
+
+$color-theme-accent-dark: darken($color-theme-accent, 5%);
+$color-theme-accent-light: lighten($color-theme-accent, 5%);
