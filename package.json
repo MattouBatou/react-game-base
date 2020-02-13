@@ -1,55 +1,59 @@
 {
-	"name": "react-game-base",
-	"version": "0.0.1",
-	"description": "A React game wrapper to host the best HTML5 renderers and game engines!",
-	"main": "index.js",
-	"scripts": {
-		"start": "webpack-dev-server --open --hot --mode development",
-		"build": "webpack --mode production",
-		"test": "echo \"Error: no test specified\" && exit 1",
-		"prettier-format-all": "prettier --write **/*.{js,jsx,scss,html}"
-	},
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/lewislong/react-game-base.git"
-	},
-	"author": "Matthew Lewis",
-	"license": "MIT",
-	"bugs": {
-		"url": "https://github.com/lewislong/react-game-base/issues"
-	},
-	"homepage": "https://github.com/lewislong/react-game-base.git#readme",
-	"dependencies": {
-		"bootstrap": "^4.4.1",
-		"react": "^16.12.0",
-		"react-bootstrap": "^1.0.0-beta.16",
-		"react-dom": "^16.12.0",
-		"react-router-dom": "^5.1.2",
-		"sass-mq": "^5.0.1"
-	},
-	"devDependencies": {
-		"@babel/core": "^7.8.3",
-		"@babel/plugin-proposal-class-properties": "^7.8.3",
-		"@babel/preset-env": "^7.8.3",
-		"@babel/preset-react": "^7.8.3",
-		"babel-cli": "^6.26.0",
-		"babel-loader": "^8.0.6",
-		"bootstrap-sass": "^3.4.1",
-		"css-loader": "^3.4.2",
-		"file-loader": "^5.0.2",
-		"node-sass": "^4.13.1",
-		"postcss-loader": "^3.0.0",
-		"precss": "^4.0.0",
-		"prettier": "^1.19.1",
-		"sass-loader": "^8.0.2",
-		"style-loader": "^1.1.3",
-		"stylelint": "^13.0.0",
-		"stylelint-config-prettier": "^8.0.1",
-		"stylelint-config-standard": "^19.0.0",
-		"stylelint-prettier": "^1.1.2",
-		"url-loader": "^3.0.0",
-		"webpack": "^4.41.5",
-		"webpack-cli": "^3.3.10",
-		"webpack-dev-server": "^3.10.1"
-	}
+  "name": "react-game-base",
+  "version": "0.0.1",
+  "description": "A React game wrapper to host the best HTML5 renderers and game engines!",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack-dev-server --open --hot --mode development",
+    "build": "webpack --mode production",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prettier-format-all": "prettier --write **/*.{js,jsx,scss,html}"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lewislong/react-game-base.git"
+  },
+  "author": "Matthew Lewis",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/lewislong/react-game-base/issues"
+  },
+  "homepage": "https://github.com/lewislong/react-game-base.git#readme",
+  "dependencies": {
+    "twojs": "github:jonobr1/two.js#v0.7.0",
+    "@phaserjs/core": "0.0.3",
+    "bootstrap": "^4.4.1",
+    "phaser": "^3.22.0",
+    "react": "^16.12.0",
+    "react-bootstrap": "^1.0.0-beta.16",
+    "react-dom": "^16.12.0",
+    "react-router-dom": "^5.1.2",
+    "sass-mq": "^5.0.1",
+    "three": "^0.113.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.8.3",
+    "@babel/plugin-proposal-class-properties": "^7.8.3",
+    "@babel/preset-env": "^7.8.3",
+    "@babel/preset-react": "^7.8.3",
+    "babel-cli": "^6.26.0",
+    "babel-loader": "^8.0.6",
+    "bootstrap-sass": "^3.4.1",
+    "css-loader": "^3.4.2",
+    "file-loader": "^5.0.2",
+    "node-sass": "^4.13.1",
+    "postcss-loader": "^3.0.0",
+    "precss": "^4.0.0",
+    "prettier": "^1.19.1",
+    "sass-loader": "^8.0.2",
+    "style-loader": "^1.1.3",
+    "stylelint": "^13.0.0",
+    "stylelint-config-prettier": "^8.0.1",
+    "stylelint-config-standard": "^19.0.0",
+    "stylelint-prettier": "^1.1.2",
+    "url-loader": "^3.0.0",
+    "webpack": "^4.41.5",
+    "webpack-cli": "^3.3.10",
+    "webpack-dev-server": "^3.10.3"
+  }
 }
