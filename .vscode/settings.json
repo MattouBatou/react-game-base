@@ -1,0 +1,27 @@
+{
+	"workbench.colorTheme": "SynthWave '84",
+	"workbench.iconTheme": "material-icon-theme",
+	"terminal.integrated.shell.windows": "C:\\Program Files\\Git\\bin\\bash.exe",
+	"vscode_custom_css.imports": ["file://F:/VSCodeThemes/synthwave84.css"],
+	"editor.defaultFormatter": "esbenp.prettier-vscode",
+	"eslint.alwaysShowStatus": true,
+	"stylelint.enable": true,
+	"explorer.confirmDragAndDrop": false,
+	"javascript.updateImportsOnFileMove.enabled": "always",
+	"explorer.confirmDelete": false,
+	"prettier.disableLanguages": ["css", "scss"],
+	"css.validate": false,
+	"less.validate": false,
+	"scss.validate": false,
+	"prettier.endOfLine": "crlf",
+	"prettier.singleQuote": true,
+	"prettier.useTabs": true,
+	"prettier.tabWidth": 4,
+	"editor.formatOnSave": true,
+	"editor.codeActionsOnSave": {
+		"source.fixAll": true
+	},
+	"prettier.jsxSingleQuote": true,
+	"prettier.useEditorConfig": false,
+	"files.autoSave": "off"
+}
