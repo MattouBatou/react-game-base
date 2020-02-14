@@ -14,22 +14,24 @@ export default class GameScene extends Phaser.Scene {
 	}
 
 	create() {
-		this.add.image(400, 300, 'sky');
+		this.background = this.add.image(512, 384, 'sky');
 
-		var particles = this.add.particles('red');
+		this.background.setScale(1.28);
 
-		var emitter = particles.createEmitter({
+		this.particles = this.add.particles('red');
+
+		this.emitter = this.particles.createEmitter({
 			speed: 100,
 			scale: { start: 1, end: 0 },
 			blendMode: 'ADD'
 		});
 
-		var logo = this.physics.add.image(400, 100, 'logo');
+		this.logo = this.physics.add.image(400, 100, 'logo');
 
-		logo.setVelocity(100, 200);
-		logo.setBounce(1, 1);
-		logo.setCollideWorldBounds(true);
+		this.logo.setVelocity(100, 200);
+		this.logo.setBounce(1, 1);
+		this.logo.setCollideWorldBounds(true);
 
-		emitter.startFollow(logo);
+		this.emitter.startFollow(this.logo);
 	}
 }

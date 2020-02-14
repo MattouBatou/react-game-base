@@ -45,10 +45,15 @@ a {
 	}
 }
 
-div > canvas {
+#phaser3Container,
+#threeContainer {
 	display: flex;
+
+	canvas {
+		margin: 1rem auto;
+	}
 }
 
-canvas{
-	margin: 1rem auto;
+#phaser3Container > canvas {
+	image-rendering: pixelated;
 }
