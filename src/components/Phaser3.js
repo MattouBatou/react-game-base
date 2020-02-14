@@ -1,19 +1,14 @@
-import React, { useState, useEffect } from "react";
-import Phaser from "phaser";
+import React, { useEffect } from 'react';
+import Game from '../phaserGame/Game';
 
-const Phaser3 = ({ setupData }) => {
-  const parentId = "phaser3Container";
+const Phaser3 = () => {
+	const parentId = 'phaser3Container';
 
-  const preload = () => {};
-  const create = () => {};
+	useEffect(() => {
+		const game = new Game(parentId);
+	}, []);
 
-  const [game, setGame] = useState(
-    new Phaser.Game(setupData(Phaser.AUTO, parentId, preload, create))
-  );
-
-  useEffect(() => {}, []);
-  console.log(Phaser);
-  return <div key={parentId} id={parentId}></div>;
+	return <div key={parentId} id={parentId}></div>;
 };
 
 export default Phaser3;

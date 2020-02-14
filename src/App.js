@@ -1,15 +1,15 @@
-import React from "react";
+import React from 'react';
 
-import { phaser3ArcadeData } from "./config/engine/phaser3Setup";
-
-import Phaser3 from "./components/Phaser3";
+import Phaser3 from './components/Phaser3';
+import ThreeJS from './components/ThreeJS';
 
 const App = () => {
-  return (
-    <>
-      <Phaser3 setupData={phaser3ArcadeData} />
-    </>
-  );
+	return (
+		<>
+			<Phaser3 />
+			<ThreeJS />
+		</>
+	);
 };
 
 export default App;

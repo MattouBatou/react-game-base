@@ -44,3 +44,11 @@ a {
 		text-decoration: underline;
 	}
 }
+
+div > canvas {
+	display: flex;
+}
+
+canvas{
+	margin: 1rem auto;
+}
