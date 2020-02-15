@@ -21,13 +21,9 @@
 	"homepage": "https://github.com/lewislong/react-game-base.git#readme",
 	"dependencies": {
 		"twojs": "github:jonobr1/two.js#v0.7.0",
-		"bootstrap": "^4.4.1",
 		"phaser": "^3.22.0",
 		"react": "^16.12.0",
-		"react-bootstrap": "^1.0.0-beta.16",
 		"react-dom": "^16.12.0",
-		"react-router-dom": "^5.1.2",
-		"sass-mq": "^5.0.1",
 		"three": "^0.113.2"
 	},
 	"devDependencies": {

@@ -6,7 +6,7 @@ import { viewportConfig, cameraConfig } from '../threeGame/config/gameConfig';
 import Game from '../threeGame/Game';
 
 const ThreeJS = () => {
-	const parentId = 'threeContainer';
+	const parentId = 'gameContainer';
 	const canvasRef = React.createRef();
 
 	useEffect(() => {

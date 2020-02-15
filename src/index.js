@@ -1,7 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
+
+import Phaser3 from './components/Phaser3';
+import ThreeJS from './components/ThreeJS';
 
 import './scss/main.scss';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(
+	<>
+		<Phaser3 />
+		<ThreeJS />
+	</>,
+	document.getElementById('root')
+);
