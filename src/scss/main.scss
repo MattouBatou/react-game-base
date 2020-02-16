@@ -1,44 +1,27 @@
-// Variables, functions and mixins
-@import
-	'./abstracts/variables/layout',
-	'./abstracts/variables/colours',
-	'./abstracts/variables/breakpoints',
-	'./abstracts/typography',
-	'./abstracts/functions',
-	'./abstracts/mixins';
+html body {
+	margin: 0 !important;
+	padding: 0 !important;
+	width: 100% !important;
+	height: 100% !important;
+}
 
-// Override Variables
-//// Theme Override
-// @import './themes/theme-purple-neon';
-@import './themes/theme-rx78';
+#gameRoot {
+	width: 100% !important;
+	height: 100% !important;
+	max-height: 100% !important;
 
-// Using Theme values
-@import './abstracts/variables/colour_transforms';
+	#gameContainer {
+		display: flex !important;
 
-// Vendor
-@import '~bootstrap/scss/bootstrap.scss';
+		canvas {
+			margin: auto !important;
+			padding: 0 !important;
+			overflow: hidden !important;
+		}
+	}
 
-// Vendor Overrides
-@import './vendor-extensions/react-custom-scroll';
-
-// Base
-@import
-	'./base/base',
-	'./base/fonts',
-	'./base/helpers',
-	'./base/typography';
-
-// Layout
-@import
-	'./layout/footer',
-	'./layout/header',
-	'./layout/navigation';
-
-// Components
-// @import './';
-
-// Pages
-// @import './';
-
-// App
-@import 'app';
+	// For pixel graphics phaser games. Omit for most WebGL games.
+	#gameContainer > canvas {
+		image-rendering: pixelated;
+	}
+}
