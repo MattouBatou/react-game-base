@@ -11,5 +11,5 @@ ReactDOM.render(
 		<Phaser3 />
 		<ThreeJS />
 	</>,
-	document.getElementById('root')
+	document.getElementById('gameRoot')
 );

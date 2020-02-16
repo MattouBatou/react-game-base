@@ -1,8 +1,4 @@
 import React, { useEffect } from 'react';
-import * as THREE from 'three';
-
-import { viewportConfig, cameraConfig } from '../threeGame/config/gameConfig';
-
 import Game from '../threeGame/Game';
 
 const ThreeJS = () => {
@@ -10,13 +6,9 @@ const ThreeJS = () => {
 	const canvasRef = React.createRef();
 
 	useEffect(() => {
-		const renderer = new THREE.WebGLRenderer();
-		renderer.setSize(viewportConfig.width, viewportConfig.height);
-		canvasRef.current.appendChild(renderer.domElement);
-
-		const game = new Game(cameraConfig, renderer);
-
-		game.start();
+		const ThreeGame = new Game();
+		canvasRef.current.appendChild(ThreeGame.renderer.domElement);
+		ThreeGame.start();
 	}, []);
 
 	return <div key={parentId} id={parentId} ref={canvasRef} />;

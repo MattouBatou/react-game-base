@@ -1,23 +1,32 @@
 const path = require('path');
+const webpack = require('webpack');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const isDevelopment = process.env.NODE_ENV === 'development';
 
 module.exports = {
-	entry: ['./src/index'],
-	devtool: 'source-map',
+	entry: {
+		app: './src/main.js',
+		vendors: ['phaser']
+	},
+	devtool: 'inline-source-map',
 	output: {
 		path: path.resolve(__dirname, 'build'),
-		filename: 'bundle.js',
-		publicPath: '/build/'
+		filename: '[name].bundle.js'
 	},
 	devServer: {
 		contentBase: path.resolve(__dirname, 'build'),
 		compress: true,
 		port: 9000,
-		publicPath: '/build/'
+		https: false
 	},
 	module: {
 		rules: [
+			{
+				test: /\.tsx?$/,
+				use: 'ts-loader',
+				exclude: /node_modules/
+			},
 			{
 				test: /\.(js|jsx)$/,
 				exclude: /node_modules/,
@@ -72,6 +81,33 @@ module.exports = {
 		]
 	},
 	resolve: {
-		extensions: ['*', '.js', '.jsx', '.scss']
+		extensions: ['*', '.js', '.jsx', '.scss', '.ts', '.tsx', '.js']
+	},
+	plugins: [
+		new CopyWebpackPlugin([
+			{
+				from: path.resolve(__dirname, 'index.html'),
+				to: path.resolve(__dirname, 'build')
+			},
+			{
+				from: path.resolve(__dirname, 'assets', '**', '*'),
+				to: path.resolve(__dirname, 'build')
+			}
+		]),
+		new webpack.DefinePlugin({
+			'typeof CANVAS_RENDERER': JSON.stringify(true),
+			'typeof WEBGL_RENDERER': JSON.stringify(true)
+		})
+	],
+	optimization: {
+		splitChunks: {
+			cacheGroups: {
+				commons: {
+					test: /[\\/]node_modules[\\/]/,
+					name: 'vendors',
+					chunks: 'all'
+				}
+			}
+		}
 	}
 };

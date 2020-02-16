@@ -1,7 +1,7 @@
-import 'phaser';
+import { AUTO } from 'phaser';
 
 export default {
-	type: Phaser.AUTO,
+	type: AUTO,
 	width: 1024,
 	height: 768,
 	physics: {
