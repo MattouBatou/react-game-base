@@ -16,5 +16,5 @@
 		"typeRoots": ["./node_modules/@types", "./nod_modules/phaser/types"]
 	},
 	"exclude": ["node_modules", "build"],
-	"include": ["./src/**/*.ts", "src/components/Phaser3.js"]
+	"include": ["./src/**/*.ts"]
 }
