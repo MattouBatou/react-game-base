@@ -1,31 +1,32 @@
 const path = require('path');
 const webpack = require('webpack');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const HTMLWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const isDevelopment = process.env.NODE_ENV === 'development';
 
 module.exports = {
 	entry: {
-		app: './src/main.js',
-		vendors: ['phaser']
+		app: './src/main.tsx',
 	},
-	devtool: 'inline-source-map',
+	devtool: 'source-map',
 	output: {
 		path: path.resolve(__dirname, 'build'),
-		filename: '[name].bundle.js'
+		filename: '[name].bundle.js',
 	},
 	devServer: {
 		contentBase: path.resolve(__dirname, 'build'),
 		compress: true,
 		port: 9000,
-		https: false
+		https: false,
 	},
 	module: {
 		rules: [
 			{
-				test: /\.tsx?$/,
+				test: /\.(ts|tsx)?$/,
 				use: 'ts-loader',
-				exclude: /node_modules/
+				exclude: /node_modules/,
 			},
 			{
 				test: /\.(js|jsx)$/,
@@ -39,13 +40,13 @@ module.exports = {
 								'@babel/preset-react',
 								{
 									plugins: [
-										'@babel/plugin-proposal-class-properties'
-									]
-								}
-							]
-						}
-					}
-				]
+										'@babel/plugin-proposal-class-properties',
+									],
+								},
+							],
+						},
+					},
+				],
 			},
 			{
 				test: /\.s(a|c)ss$/,
@@ -54,60 +55,62 @@ module.exports = {
 					{
 						loader: 'css-loader',
 						options: {
-							sourceMap: isDevelopment
-						}
+							sourceMap: isDevelopment,
+						},
 					},
 					'postcss-loader',
-					'sass-loader'
-				]
+					'sass-loader',
+				],
 			},
 			{
 				test: /\.css$/i,
-				use: ['style-loader', 'css-loader', 'postcss-loader']
+				use: ['style-loader', 'css-loader', 'postcss-loader'],
 			},
 			{
-				test: /\.(png|jpg|gif)$/i,
-				exclude: [/\.(js|jsx|mjs)$/, /\.html$/, /\.json$/, /\.scss$/],
+				test: /\.(png|jpe?g|gif|jp2|webp)$/i,
 				use: [
 					{
-						loader: 'url-loader',
+						loader: 'file-loader',
 						options: {
-							limit: 8192,
-							fallback: require.resolve('file-loader')
-						}
-					}
-				]
-			}
-		]
-	},
-	resolve: {
-		extensions: ['*', '.js', '.jsx', '.scss', '.ts', '.tsx', '.js']
-	},
-	plugins: [
-		new CopyWebpackPlugin([
-			{
-				from: path.resolve(__dirname, 'index.html'),
-				to: path.resolve(__dirname, 'build')
+							useRelativePath: true,
+							publicPath: 'assets/images/',
+							name: '[name].[ext]',
+							emitFile: false,
+						},
+					},
+				],
 			},
 			{
+				test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
+				use: [
+					{
+						loader: 'file-loader',
+						options: {
+							name: '[name].[ext]',
+						},
+					},
+				],
+			},
+		],
+	},
+	resolve: {
+		extensions: ['*', '.js', '.jsx', '.scss', '.ts', '.tsx'],
+	},
+	plugins: [
+		new CleanWebpackPlugin(),
+		new HTMLWebpackPlugin({ template: './src/index.html' }),
+		new CopyWebpackPlugin([
+			{
 				from: path.resolve(__dirname, 'assets', '**', '*'),
-				to: path.resolve(__dirname, 'build')
-			}
+				to: path.resolve(__dirname, 'build'),
+			},
 		]),
 		new webpack.DefinePlugin({
 			'typeof CANVAS_RENDERER': JSON.stringify(true),
-			'typeof WEBGL_RENDERER': JSON.stringify(true)
-		})
+			'typeof WEBGL_RENDERER': JSON.stringify(true),
+		}),
 	],
 	optimization: {
-		splitChunks: {
-			cacheGroups: {
-				commons: {
-					test: /[\\/]node_modules[\\/]/,
-					name: 'vendors',
-					chunks: 'all'
-				}
-			}
-		}
-	}
+		minimize: isDevelopment ? false : true,
+	},
 };
