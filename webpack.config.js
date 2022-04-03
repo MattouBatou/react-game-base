@@ -16,7 +16,7 @@ module.exports = {
 		filename: '[name].bundle.js',
 	},
 	devServer: {
-		contentBase: path.resolve(__dirname, 'build'),
+		static: path.resolve(__dirname, 'build'),
 		compress: true,
 		port: 9000,
 		https: false,
@@ -99,12 +99,15 @@ module.exports = {
 	plugins: [
 		new CleanWebpackPlugin(),
 		new HTMLWebpackPlugin({ template: './src/index.html' }),
-		new CopyWebpackPlugin([
-			{
-				from: path.resolve(__dirname, 'assets', '**', '*'),
-				to: path.resolve(__dirname, 'build'),
-			},
-		]),
+		new CopyWebpackPlugin({
+			patterns: [
+				{
+					from: path.resolve(__dirname, 'assets'),
+					to: path.resolve(__dirname, 'build/assets'),
+					noErrorOnMissing: true,
+				},
+			],
+		}),
 		new webpack.DefinePlugin({
 			'typeof CANVAS_RENDERER': JSON.stringify(true),
 			'typeof WEBGL_RENDERER': JSON.stringify(true),

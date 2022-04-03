@@ -18,7 +18,6 @@ export default class Game {
 
 	init = (loader: any, resources: any) => {
 		const { app } = this;
-		console.log(loader);
 
 		let bunny = new PIXI.Sprite(resources.wolverine.texture);
 		// bunny.anchor.set(0.5);
