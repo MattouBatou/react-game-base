@@ -1,25 +1,27 @@
-import * as PIXI from 'pixi.js';
+import { Application, Loader, Sprite } from 'pixi.js';
 import config from './config/gameConfig';
 
 export default class Game {
-	public app: PIXI.Application;
+	public app: Application;
 
 	constructor(domId: string) {
-		this.app = new PIXI.Application({ ...config });
+		this.app = new Application({ ...config });
 
-		document.getElementById(domId)?.appendChild(this.app.view);
+		document
+			.getElementById(domId)
+			?.appendChild(this.app.view as HTMLCanvasElement);
 	}
 
 	load() {
-		PIXI.Loader.shared
+		Loader.shared
 			.add('wolverine', 'assets/images/rabbitv3_wolverine.png')
 			.load(this.init);
 	}
 
-	init = (loader: any, resources: any) => {
+	init = (_loader: any, resources: any) => {
 		const { app } = this;
 
-		let bunny = new PIXI.Sprite(resources.wolverine.texture);
+		let bunny = new Sprite(resources.wolverine.texture);
 		// bunny.anchor.set(0.5);
 		bunny.x = 100;
 		// bunny.x = app.stage.width / 2 - bunny.width / 2;
@@ -27,3 +29,4 @@ export default class Game {
 		app.stage.addChild(bunny);
 	};
 }
+
