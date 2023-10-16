@@ -15,8 +15,23 @@
 		"strictPropertyInitialization": false,
 		"strictNullChecks": true,
 		"target": "es5" /* Specify ECMAScript target version: 'ES3' (default), 'ES5', 'ES2015', 'ES2016', 'ES2017','ES2018' or 'ESNEXT'. */,
-		"typeRoots": ["./node_modules/@types"]
+		"typeRoots": [
+			"./node_modules/@types",
+			"./node_modules/phaser/types"
+		],
+		"types": [
+			"phaser"
+		]
 	},
-	"exclude": ["node_modules", "build", ".vscode"],
-	"include": ["src", "src/**/*.ts", "src/**/*.tsx", "./**/*.d.ts"]
+	"exclude": [
+		"node_modules",
+		"build",
+		".vscode"
+	],
+	"include": [
+		"src",
+		"src/**/*.ts",
+		"src/**/*.tsx",
+		"./**/*.d.ts"
+	]
 }

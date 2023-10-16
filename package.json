@@ -20,7 +20,7 @@
 	},
 	"homepage": "https://github.com/lewislong/react-game-base.git#readme",
 	"dependencies": {
-		"phaser": "^3.53.1",
+		"phaser": "^3.60.0",
 		"pixi.js": "^6.5.0",
 		"react": "^18.0.0",
 		"react-dom": "^18.0.0",

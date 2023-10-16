@@ -6,7 +6,6 @@ export default class GameScene extends Scene {
 	private background: GameObjects.Image;
 	private emitter: GameObjects.Particles.ParticleEmitter;
 	private logo: Physics.Arcade.Image;
-	private particles: GameObjects.Particles.ParticleEmitterManager;
 
 	create() {
 		this.background = this.add.image(
@@ -17,12 +16,11 @@ export default class GameScene extends Scene {
 
 		this.background.setScale(gameConfig.width / this.background.width);
 
-		this.particles = this.add.particles('red');
-
-		this.emitter = this.particles.createEmitter({
+		this.emitter = this.add.particles(0, 0, 'red', {
+			frame: 'red',
 			speed: 100,
 			scale: { start: 1, end: 0 },
-			blendMode: 'ADD'
+			blendMode: 'ADD',
 		});
 
 		this.logo = this.physics.add.image(400, 100, 'logo');
@@ -34,10 +32,8 @@ export default class GameScene extends Scene {
 	}
 
 	preload() {
-		this.load.setBaseURL('http://labs.phaser.io');
-
-		this.load.image('sky', 'assets/skies/space3.png');
-		this.load.image('logo', 'assets/sprites/phaser3-logo.png');
-		this.load.image('red', 'assets/particles/red.png');
+		this.load.image('sky', 'assets/images/space3.png');
+		this.load.image('logo', 'assets/images/phaser3-logo.png');
+		this.load.image('red', 'assets/images/red.png');
 	}
 }
